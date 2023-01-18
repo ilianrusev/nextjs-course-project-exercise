@@ -1,11 +1,11 @@
 export interface Event {
   id: string;
   title: string;
-  description: string;
+  description?: string;
   location: string;
   date: string;
   image: string;
-  isFeatured: boolean;
+  isFeatured?: boolean;
 }
 
 const DUMMY_EVENTS: Event[] = [
