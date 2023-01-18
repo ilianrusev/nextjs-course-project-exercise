@@ -1,8 +1,10 @@
+import styles from "./EventList.module.css";
+
 import EventItem from "./EventItem";
 
 function EventList(props: any) {
   return (
-    <ul>
+    <ul className={styles.list}>
       {props.events.map((event: any) => {
         return (
           <EventItem
