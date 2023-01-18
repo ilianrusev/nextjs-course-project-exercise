@@ -4,14 +4,16 @@ function EventList(props: any) {
   return (
     <ul>
       {props.events.map((event: any) => {
-        <EventItem
-          key={event.id}
-          id={event.id}
-          title={event.title}
-          location={event.location}
-          date={event.date}
-          image={event.image}
-        />;
+        return (
+          <EventItem
+            key={event.id}
+            id={event.id}
+            title={event.title}
+            location={event.location}
+            date={event.date}
+            image={event.image}
+          />
+        );
       })}
     </ul>
   );
