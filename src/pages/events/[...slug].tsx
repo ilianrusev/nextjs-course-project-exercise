@@ -5,9 +5,10 @@ import Button from "@/componets/ui/Button";
 import { getFilteredEvents } from "../../utils/api-util";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
+import Head from "next/head";
 
 function FilteredEventsPage(props) {
-  const router = useRouter();
+  // const router = useRouter();
 
   // const filterData = router.query.slug;   // can be used for client-side fetching with useState and useEffect
 
@@ -18,9 +19,20 @@ function FilteredEventsPage(props) {
   // const numYear: number = +filterData[0];
   // const numMonth: number = +filterData[1];
 
+  const pageHeadData = (
+    <Head>
+      <title>Filtered Events</title>
+      <meta
+        name="description"
+        content={`All events for ${props.date.month}/${props.date.year}`}
+      />
+    </Head>
+  );
+
   if (props.hasError) {
     return (
       <Fragment>
+        {pageHeadData}
         <ErrorAlert>
           <p>Invalid filter.</p>
         </ErrorAlert>
@@ -37,6 +49,7 @@ function FilteredEventsPage(props) {
   if (!filteredEvents || filteredEvents.length === 0) {
     return (
       <Fragment>
+        {pageHeadData}
         <ErrorAlert>
           <p>No events Found for the chosen filter.</p>
         </ErrorAlert>
@@ -51,6 +64,7 @@ function FilteredEventsPage(props) {
 
   return (
     <Fragment>
+      {pageHeadData}
       <ResultsTitle date={date} />
       <EventList events={filteredEvents} />
     </Fragment>
@@ -91,7 +105,7 @@ export async function getServerSideProps(context) {
       events: filteredEvents,
       date: {
         year: numYear,
-        month: numYear,
+        month: numMonth,
       },
     },
   };
