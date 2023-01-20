@@ -9,7 +9,7 @@ import { Fragment } from "react";
 function FilteredEventsPage(props) {
   const router = useRouter();
 
-  // const filterData = router.query.slug;
+  // const filterData = router.query.slug;   // can be used for client-side fetching with useState and useEffect
 
   // if (!filterData) {
   //   return <p className="center">Loading...</p>;
