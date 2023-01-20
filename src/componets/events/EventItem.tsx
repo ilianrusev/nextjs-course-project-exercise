@@ -4,6 +4,7 @@ import Button from "../ui/Button";
 import DateIcon from "../icons/DateIcon";
 import AddressIcon from "../icons/AddressIcon";
 import ArrowRightIcon from "../icons/ArrowRightIcon";
+import Image from "next/image";
 
 function EventItem(props: any) {
   const readableDate = new Date(props.date).toLocaleDateString("en-US", {
@@ -17,7 +18,12 @@ function EventItem(props: any) {
 
   return (
     <li className={styles.item}>
-      <img src={"/" + props.image} alt={props.title} />
+      <Image
+        src={"/" + props.image}
+        alt={props.title}
+        width={250}
+        height={160}
+      />
       <div className={styles.content}>
         <div className={styles.summary}>
           <h2>{props.title}</h2>
