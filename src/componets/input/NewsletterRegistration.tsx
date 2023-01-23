@@ -13,7 +13,7 @@ function NewsletterRegistration() {
 
     notifCtx.showNotification({
       title: "Signing up...",
-      messge: "Registering for newsletter",
+      message: "Registering for newsletter",
       status: "pending",
     });
 
@@ -33,14 +33,14 @@ function NewsletterRegistration() {
       .then((data) => {
         notifCtx.showNotification({
           title: "Success",
-          messge: "Successfully registered",
+          message: "Successfully registered",
           status: "success",
         });
       })
       .catch((error) => {
         notifCtx.showNotification({
           title: "Error",
-          messge: error.message || "something went wrong",
+          message: error.message || "something went wrong",
           status: "error",
         });
       });
